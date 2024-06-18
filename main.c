@@ -1,7 +1,9 @@
 #include <stdio.h>
 
 void level_one(player_choose){
-    printf("\n\nKIR\n");
+    printf("\nyour ");
+    puts(player_choose);
+    printf("lefts you... \n");
 }
 
 int main(){
@@ -19,6 +21,6 @@ int main(){
     scanf("%d", &choose);
     printf("\nYou chose %s. I hope it will be handful.\n", arr[choose]);
     printf("OK! Let's start the journey.");
-    level_one(choose);
+    level_one(arr[choose]);
     return 0;
 }
