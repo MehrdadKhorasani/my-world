@@ -1,30 +1,31 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include "stage1.c"
 
-void level_one(const char *player_choose){
-   if(strcmp(player_choose, "your dad's gun") == 0){
-        printf("1\n");
-    } else if(strcmp(player_choose, "your favorite book") == 0){
-        printf("2\n");
-    } else if(strcmp(player_choose, "one of your friends") == 0){
-        printf("3\n");
-    }
+
+void introduce(char name[])
+{
+    puts("This is my world. and now you are in here.");
+    puts("Oh what a misbehaved person could I be ... to didn't know your name all this time.");
+    puts("My bad ... What is your little and beauty name?");
+    printf("__: ");
+    scanf("%s", name);
+    printf("Okay %s. I let you choose to grab just on of these items. which do you want? \n", name);
 }
 
-int main(){
-    const char *arr[] = {"your dad's gun", "your favorite book", "one of your friends"};
-    int choose;
-    // START OF THE GAME
-    printf("hello and welcome to my world.\n");
-    printf("before you start, I let you take one of your things and bring it to the game ... \n\n");
-    printf("what would you choose?\n");
-    for (int i = 0; i <= 2; i++){
-        printf("%d ", i + 1);
-        puts(arr[i]);
-    };
+int main()
+{
+    char name[25]; 
+    char *items[3] = {"letter from an old love", "The spoon you scraped the wall with", "A piece of rotten cheese left over from a long time ago"};
+    for(int i = 0; i < 3 ; i++)
+    {
+        printf("%s", items[i]);
+    }
+    introduce(name);
+    sleep(2);
+    puts("it after 5 seconds");
+    printf("%s", name);
 
-    scanf("%d", &choose);
-    printf("\nYou chose %s. I hope it will be handful.\n", arr[choose]);
-    printf("OK! Let's start the journey.");
-    level_one(arr[choose]);
     return 0;
 }
